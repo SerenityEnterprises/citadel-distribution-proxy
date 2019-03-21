@@ -15,7 +15,7 @@ app.get("/download/:artifact/:file", async (req, res) => {
     const { artifact, file } = req.params
     const ip = req.ip
 
-    https.get(`https://${CITADEL_BASE_URL}/proxied_get/${token}/${CITADEL_APPLICATION}/${artifact}/${file}?key=${CITADEL_API_KEY}&ip=${ip}`, citadelRes => {
+    https.get(`https://${CITADEL_BASE_URL}/get/${token}/${CITADEL_APPLICATION}/${artifact}/${file}?key=${CITADEL_API_KEY}&ip=${ip}`, citadelRes => {
         res.statusCode = citadelRes.statusCode || 500
         res.set(citadelRes.headers)
 
